@@ -25,16 +25,16 @@ module.exports = function(app, passport) {
 
     //Setting the fav icon and static folder
     app.use(express.favicon());
-    app.use(express.static(config.root + '/public'));
+     app.use(express.static(config.root + '/public'));
 
     //Don't use logger for test env
     if (process.env.NODE_ENV !== 'test') {
         app.use(express.logger('dev'));
     }
 
-    //Set views path, template engine and default layout
-    app.set('views', config.root + '/app/views');
-    app.set('view engine', 'jade');
+    // //Set views path, template engine and default layout
+    // app.set('views', config.root + '/app/views');
+    // app.set('view engine', 'jade');
 
     //Enable jsonp
     app.enable("jsonp callback");
