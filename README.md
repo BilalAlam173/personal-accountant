@@ -1,82 +1,60 @@
-# Angular Full Stack [![Dependencies](https://david-dm.org/DavideViolante/Angular-Full-Stack.svg)](https://david-dm.org/DavideViolante/Angular2-Full-Stack) [![Donate](https://img.shields.io/badge/paypal-donate-179BD7.svg)](https://www.paypal.me/dviolante) [![MIT license](http://img.shields.io/badge/license-MIT-lightgrey.svg)](http://opensource.org/licenses/MIT)
+Sequelize.js Starter Application
+=================
+
+<p align="center">
+  <a href="http://sequelizejs.com">
+    <img height="98" width="98" src="http://sequelizejs.com/images/logo.png"/>
+  </a>
+  <br/>
+  <a href="http://sequelizejs.com/">Sequelize.js website!</a>
+  <br/>
+  <a href="http://sequelizejs.com/docs/latest/installation">Read the Documentation</a>
+</p>
+
+Sequelize's mission statement is the following:
+
+>The Sequelize library provides easy access to MySQL, MariaDB, SQLite or PostgreSQL databases by mapping database entries to objects and vice versa. To put it in a nutshell, it's an ORM (Object-Relational-Mapper). The library is written entirely in JavaScript and can be used in the Node.JS environment.
+
+This library attempts to show **best practices** in using [Sequelize.js](http://sequelizejs.com/). 
+
+## Getting Started
+
+```bash
+# Clone the repository
+git clone git@github.com:jpotts18/sequelize-starter.git
+
+# Change into the repository root
+cd sequelize-starter/
+
+# Download and install an necessary dependencies 
+npm install
+
+# Start app.js using Grunt task runner. 
+grunt
+
+```
+
+## NPM Modules
+- [Passport](http://passportjs.org/) - Passport is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more. 
+- [Express](http://expressjs.com/) - Express is a minimal and flexible node.js web application framework, providing a robust set of features for building single and multi-page, and hybrid web applications.
+- [Sequelize](http://sequelizejs.com/) - The Sequelize library provides easy access to MySQL, MariaDB, SQLite or PostgreSQL databases by mapping database entries to objects and vice versa. To put it in a nutshell, it's an ORM (Object-Relational-Mapper). The library is written entirely in JavaScript and can be used in the Node.JS environment. 
+
+## Javascript Tools
+- [Grunt](http://gruntjs.com/) - In one word: automation. The less work you have to do when performing repetitive tasks like minification, compilation, unit testing, linting, etc, the easier your job becomes. After you've configured it, a Grunt can do most of that mundane work for you—and your team—with basically zero effort.
+
+  1. It [watches](https://github.com/jpotts18/mean-stack-relational/blob/master/gruntfile.js#L5) your filesystem and when it detects a change it will livereload your changes. 
+
+  2. It runs [jshint](https://github.com/jpotts18/mean-stack-relational/blob/master/gruntfile.js#L32) which looks through your javascript files and ensures coding standards.
+
+  3. It runs [nodemon](https://github.com/jpotts18/mean-stack-relational/blob/master/gruntfile.js#L35) which watches changes in specific folders and recompiles the app when necessary. No running ```node app.js``` every 2 minutes. 
+
+  4. It can also run tests like mocha and karma for you.
+
+## Troubleshooting
+
+During install some of you may encounter some issues feel free to contact me (jpotts18), via the repository issue tracker or the links provided below. I am also available on twitter [@jpotts18](http://twitter.com/jpotts18).
 
 
-The frontend is generated with [Angular CLI](https://github.com/angular/angular-cli). The backend is made from scratch. Whole stack in [TypeScript](https://www.typescriptlang.org).
 
-This project uses the [MEAN stack](https://en.wikipedia.org/wiki/MEAN_(software_bundle)):
-* [**M**ongoose.js](http://www.mongoosejs.com) ([MongoDB](https://www.mongodb.com)): database
-* [**E**xpress.js](http://expressjs.com): backend framework
-* [**A**ngular 2+](https://angular.io): frontend framework
-* [**N**ode.js](https://nodejs.org): runtime environment
 
-Other tools and technologies used:
-* [Angular CLI](https://cli.angular.io): frontend scaffolding
-* [Bootstrap](http://www.getbootstrap.com): layout and styles
-* [Font Awesome](http://fontawesome.io): icons
-* [JSON Web Token](https://jwt.io): user authentication
-* [Angular 2 JWT](https://github.com/auth0/angular2-jwt/tree/v1.0): JWT helper for Angular
-* [Bcrypt.js](https://github.com/dcodeIO/bcrypt.js): password encryption
 
-## Prerequisites
-1. Install [Node.js](https://nodejs.org) and [MongoDB](https://www.mongodb.com)
-2. Install Angular CLI: `npm i -g @angular/cli`
-3. From project root folder install all the dependencies: `npm i`
-
-## Run
-### Development mode
-`npm run dev`: [concurrently](https://github.com/kimmobrunfeldt/concurrently) execute MongoDB, Angular build, TypeScript compiler and Express server.
-
-A window will automatically open at [localhost:4200](http://localhost:4200). Angular and Express files are being watched. Any change automatically creates a new bundle, restart Express server and reload your browser.
-
-### Production mode
-`npm run prod`: run the project with a production bundle and AOT compilation listening at [localhost:3000](http://localhost:3000) 
-
-## Deploy (Heroku)
-1. Go to Heroku and create a new app (eg: `your-app-name`)
-2. Install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-3. `heroku login`
-4. `mkdir your-app-name && cd your-app-name`
-5. `git init`
-6. `heroku git:remote -a your-app-name`
-7. Download this repo and copy all files into `your-app-name` folder
-8. `npm i`
-9. Edit `package.json` as following:
-   - add this line to scripts: `"postinstall": "tsc -p server && ng build -aot -prod"`
-   - move the following packages from devDependencies to dependencies: `@angular/cli`, `@angular/compiler-cli`, `@types/jasmine`, `@types/node`, `chai`, `chai-http` and `typescript`.
-10. Edit `.env` and replace the MongoDB URI with a real remote MongoDB server. You can create a MongoDB server with Heroku or mLab.
-11. `git add .`
-12. `git commit -m "Going to Heroku"`
-13. `git push heroku master`
-14. `heroku open` and a window will open with your app online
-
-## Preview
-![Preview](https://raw.githubusercontent.com/DavideViolante/Angular2-Full-Stack/master/demo.gif "Preview")
-
-## Please open an issue if
-* you have any suggestion to improve this project
-* you noticed any problem or error
-
-## To do
-* More tests
-
-## Running frontend unit tests
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running frontend end-to-end tests
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). 
-Before running the tests make sure you are serving the app via `npm start`.
-
-## Running backend tests
-Run `mongod` to run an instance of MongoDB, then run `npm run testbe` to execute the backend tests via [Mocha](https://mochajs.org/).
-
-## Running TSLint
-Run `ng lint` (frontend) and `npm run lintbe` (backend) to execute the linter via [TSLint](https://palantir.github.io/tslint/).
-
-## Wiki
-To get more help about this project, [visit the official wiki](https://github.com/DavideViolante/Angular-Full-Stack/wiki).
-
-## Further help
-To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-### Author
-* [Davide Violante](https://github.com/DavideViolante)
