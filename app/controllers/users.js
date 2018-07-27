@@ -32,8 +32,25 @@ exports.create = function(req, res) {
       res.send(500).json({message:err})
     });
 };
-
-
+/**
+ * Login
+ */
+exports.user = function(req, res, next) {
+    email = req.body.email;
+    password = req.body.password;
+    db.User.find({ where: { email: email }}).success(function(user) {
+        if (!user) {
+          res.send(500).json({ message: 'Unknown user' });
+        } else if (!user.authenticate(password)) {
+            res.send(500).json({ message: 'Invalid Password' });
+        } else {
+          console.log('Login (local) : { id: ' + user.id + ', username: ' + user.username + ' }');
+          res.send(user);
+        }
+      }).error(function(err){
+        res.send(500).json({ message: err });
+      });
+};
 /**
  * Find user by id
  */
