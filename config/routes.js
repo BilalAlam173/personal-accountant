@@ -8,8 +8,8 @@ exports.init = function(app, passport, auth) {
     console.log('Initializing Routes');
 
     // Setting up the users api
-    app.post('/users', users.create);
-    app.post('/login', users.create);
+    app.post('/api/users', users.create);
+    app.post('/api/login', users.create);
 
     // Setting the local strategy route
     app.post('/users/session', passport.authenticate('local', {
