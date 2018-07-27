@@ -7,12 +7,6 @@ exports.init = function(app, passport, auth) {
 
     console.log('Initializing Routes');
 
-    // User Routes
-    app.get('/signin', users.signin);
-    app.get('/signup', users.signup);
-    app.get('/signout', users.signout);
-    app.get('/users/me', users.me);
-
     // Setting up the users api
     app.post('/users', users.create);
 

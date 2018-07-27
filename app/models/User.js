@@ -14,12 +14,7 @@ module.exports = function(sequelize, DataTypes) {
 			username: DataTypes.STRING,
 			hashedPassword: DataTypes.STRING,
 			provider: DataTypes.STRING,
-			salt: DataTypes.STRING, 
-			facebookUserId: DataTypes.INTEGER,
-			twitterUserId: DataTypes.INTEGER,
-			twitterKey: DataTypes.STRING,
-			twitterSecret: DataTypes.STRING,
-			github: DataTypes.STRING,
+			salt: DataTypes.STRING,
 			openId: DataTypes.STRING
 		},
 		{
@@ -33,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
 				encryptPassword: function(password, salt) {
 					if (!password || !salt) return '';
 					salt = new Buffer(salt, 'base64');
-					return crypto.pbkdf2Sync(password, salt, 10000, 64).toString('base64');
+					return crypto.pbkdf2Sync(password, salt, 10000, 64,'sha512').toString('base64');
 				}
 			},
 			associate: function(models) {
