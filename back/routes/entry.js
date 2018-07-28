@@ -67,7 +67,7 @@ exports.init = function (app) {
      * @apiName Delete
      * @apiGroup Entry
      *
-     *  * @apiSuccess {id} id user's unique id.
+     *  * @apiSuccess {PK} id user's unique id.
      * @apiSuccessExample Success-Response:
      *     HTTP/1.1 200 OK
      *      {
@@ -96,7 +96,7 @@ exports.init = function (app) {
      * @apiName Delete
      * @apiGroup Entry
      *
-     * @apiParam {id} id Users unique ID.
+     * @apiParam {PK} id Users unique ID.
      * 
      * @apiSuccess {String} title entry title or descrition.
      * @apiSuccess {Number} amount total amount

@@ -7,22 +7,20 @@ exports.init = function (app) {
      * @apiGroup Method
      *
      *
-     * @apiSuccess {String} name user's fullname.
-     * @apiSuccess {Boolean} positive True means positive i.e an increase in this method will cause increase in cash and vise versa.
+     * @apiSuccess {String} name method title/name.
+     * @apiSuccess {String} type cash/account etc.
      *
      * @apiSuccessExample Success-Response:
      *     HTTP/1.1 200 OK
-     *   {
-     *    "name": "Income",
-          "positive": true,
-          "id": 1,
-          "updatedAt": "2018-07-28T17:11:22.000Z",
-          "createdAt": "2018-07-28T17:11:22.000Z"
-         }
      *
-     * @apiError Unknown Something went wrong.
-     
-     */
+        {
+            "name": "Transport",
+            "type": "Cash"
+        }
+    *
+    *
+    @apiError Unknown Something went wrong.
+    */
     app.post('/method', method.create);
 
     /**
@@ -32,17 +30,16 @@ exports.init = function (app) {
      *
      * @apiSuccessExample Success-Response:
      *     HTTP/1.1 200 OK
-     *   [{
-     *    "name": "Income",
-          "positive": true,
-          "id": 1,
-          "updatedAt": "2018-07-28T17:11:22.000Z",
-          "createdAt": "2018-07-28T17:11:22.000Z"
-         }]
      *
-     * @apiError Unknown Something went wrong.
-     
-     */
+        {
+            "name": "Transport",
+            "type": "Cash"
+        }
+    *
+    *
+    @apiError Unknown Something went wrong.
+
+    */
     app.get('/method', method.all);
 
     /**
@@ -50,41 +47,40 @@ exports.init = function (app) {
      * @apiName Delete
      * @apiGroup Method
      *
-     *  * @apiSuccess {String} name user's fullname.
-     *  * @apiSuccess {Boolean} positive True means positive i.e an increase in this method will cause increase in cash and vise versa.
+     *  * @apiSuccess {PK} id unique key.
      * @apiSuccessExample Success-Response:
      *     HTTP/1.1 200 OK
-     *   {
-     *    "name": "Income",
-          "positive": true,
-          "id": 1,
-          "updatedAt": "2018-07-28T17:11:22.000Z",
-          "createdAt": "2018-07-28T17:11:22.000Z"
-         }
+     *   
      *
-     * @apiError server No user found with the provided id.
-     * @apiError server Something went wrong.
-     * @apiError server Error while finding the user with the provided id
-     
-     */
-     app.delete('/method', method.destroy);
+        {
+            "name": "Transport",
+            "type": "Cash"
+        }
+    *
+    *
+    *@apiError server No user found with the provided id.
+    *@apiError server Something went wrong.*@apiError server Error
+     while finding the user with the provided id
 
-     /**
+        */
+    app.delete('/method', method.destroy);
+
+    /**
      * @api {put} /method update an method
      * @apiName Delete
      * @apiGroup Method
      *
      * @apiParam {id} id Users unique ID.
+     * 
+     * @apiSuccess {String} name method title/name.
+     * @apiSuccess {String} type cash/account etc.
 
      * @apiSuccessExample Success-Response:
      *     HTTP/1.1 200 OK
-     *   {
-     *    "name": "Income",
-          "positive": true,
-          "id": 1,
-          "updatedAt": "2018-07-28T17:11:22.000Z",
-          "createdAt": "2018-07-28T17:11:22.000Z"
-         }
+     *  {
+            "name": "Transport",
+            "type": "Cash"
+        }
      *
      * @apiError server No user found with the provided id.
      * @apiError server Something went wrong.
@@ -92,7 +88,7 @@ exports.init = function (app) {
     
      */
 
-     app.put('/method/:id', method.update);
+    app.put('/method/:id', method.update);
 
 
 };

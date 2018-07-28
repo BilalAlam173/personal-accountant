@@ -298,21 +298,21 @@
             "type": "String",
             "optional": false,
             "field": "name",
-            "description": "<p>user's fullname.</p>"
+            "description": "<p>Account title/name.</p>"
           },
           {
             "group": "Success 200",
-            "type": "Boolean",
+            "type": "FK",
             "optional": false,
-            "field": "positive",
-            "description": "<p>True means positive i.e an increase in this category will cause increase in cash and vise versa.</p>"
+            "field": "AccountId.",
+            "description": ""
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "  HTTP/1.1 200 OK\n{\n \"name\": \"Income\",\n        \"positive\": true,\n        \"id\": 1,\n        \"updatedAt\": \"2018-07-28T17:11:22.000Z\",\n        \"createdAt\": \"2018-07-28T17:11:22.000Z\"\n       }",
+          "content": "HTTP/1.1 200 OK\n\n    {\n        \"name\": \"Transport\",\n        \"AccountId\": 1,\n        \"account\": \"Income\",\n        \"id\": 1,\n        \"updatedAt\": \"2018-07-28T20:13:12.000Z\",\n        \"createdAt\": \"2018-07-28T20:13:12.000Z\"\n    }",
           "type": "json"
         }
       ]
@@ -344,19 +344,37 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "id",
+            "type": "PK",
             "optional": false,
             "field": "id",
-            "description": "<p>Users unique ID.</p>"
+            "description": "<p>unique ID.</p>"
           }
         ]
       }
     },
     "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Account title/name.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "FK",
+            "optional": false,
+            "field": "AccountId.",
+            "description": ""
+          }
+        ]
+      },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "  HTTP/1.1 200 OK\n{\n \"name\": \"Income\",\n        \"positive\": true,\n        \"id\": 1,\n        \"updatedAt\": \"2018-07-28T17:11:22.000Z\",\n        \"createdAt\": \"2018-07-28T17:11:22.000Z\"\n       }",
+          "content": "HTTP/1.1 200 OK\n\n    {\n        \"name\": \"Transport\",\n        \"AccountId\": 1,\n        \"account\": \"Income\",\n        \"id\": 1,\n        \"updatedAt\": \"2018-07-28T20:13:12.000Z\",\n        \"createdAt\": \"2018-07-28T20:13:12.000Z\"\n    }",
           "type": "json"
         }
       ]
@@ -368,7 +386,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "server",
-            "description": "<p>No user found with the provided id.</p>"
+            "description": "<p>No user found with the provided id.<em>@apiError server Something went wrong.</em>@apiError server Error while finding the user with the provided id</p>"
           }
         ]
       }
@@ -388,24 +406,17 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "PK",
             "optional": false,
-            "field": "name",
-            "description": "<p>user's fullname.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "positive",
-            "description": "<p>True means positive i.e an increase in this category will cause increase in cash and vise versa.</p>"
+            "field": "id",
+            "description": "<p>unique id</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "  HTTP/1.1 200 OK\n{\n \"name\": \"Income\",\n        \"positive\": true,\n        \"id\": 1,\n        \"updatedAt\": \"2018-07-28T17:11:22.000Z\",\n        \"createdAt\": \"2018-07-28T17:11:22.000Z\"\n       }",
+          "content": "HTTP/1.1 200 OK\n\n    {\n        \"name\": \"Transport\",\n        \"AccountId\": 1,\n        \"account\": \"Income\",\n        \"id\": 1,\n        \"updatedAt\": \"2018-07-28T20:13:12.000Z\",\n        \"createdAt\": \"2018-07-28T20:13:12.000Z\"\n    }",
           "type": "json"
         }
       ]
@@ -417,7 +428,7 @@
             "group": "Error 4xx",
             "optional": false,
             "field": "server",
-            "description": "<p>No user found with the provided id.</p>"
+            "description": "<p>No user found with the provided id.<em>@apiError server Something went wrong.</em>@apiError server Error while finding the user with the provided id</p>"
           }
         ]
       }
@@ -436,7 +447,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "  HTTP/1.1 200 OK\n[{\n \"name\": \"Income\",\n        \"positive\": true,\n        \"id\": 1,\n        \"updatedAt\": \"2018-07-28T17:11:22.000Z\",\n        \"createdAt\": \"2018-07-28T17:11:22.000Z\"\n       }]",
+          "content": "HTTP/1.1 200 OK\n\n    [{\n        \"name\": \"Transport\",\n        \"AccountId\": 1,\n        \"account\": \"Income\",\n        \"id\": 1,\n        \"updatedAt\": \"2018-07-28T20:13:12.000Z\",\n        \"createdAt\": \"2018-07-28T20:13:12.000Z\"\n    }]",
           "type": "json"
         }
       ]
@@ -538,7 +549,7 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "id",
+            "type": "PK",
             "optional": false,
             "field": "id",
             "description": "<p>Users unique ID.</p>"
@@ -621,7 +632,7 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "id",
+            "type": "PK",
             "optional": false,
             "field": "id",
             "description": "<p>user's unique id.</p>"
@@ -697,21 +708,21 @@
             "type": "String",
             "optional": false,
             "field": "name",
-            "description": "<p>user's fullname.</p>"
+            "description": "<p>method title/name.</p>"
           },
           {
             "group": "Success 200",
-            "type": "Boolean",
+            "type": "String",
             "optional": false,
-            "field": "positive",
-            "description": "<p>True means positive i.e an increase in this method will cause increase in cash and vise versa.</p>"
+            "field": "type",
+            "description": "<p>cash/account etc.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "  HTTP/1.1 200 OK\n{\n \"name\": \"Income\",\n        \"positive\": true,\n        \"id\": 1,\n        \"updatedAt\": \"2018-07-28T17:11:22.000Z\",\n        \"createdAt\": \"2018-07-28T17:11:22.000Z\"\n       }",
+          "content": "HTTP/1.1 200 OK\n\n    {\n        \"name\": \"Transport\",\n        \"type\": \"Cash\"\n    }",
           "type": "json"
         }
       ]
@@ -743,24 +754,17 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "PK",
             "optional": false,
-            "field": "name",
-            "description": "<p>user's fullname.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "positive",
-            "description": "<p>True means positive i.e an increase in this method will cause increase in cash and vise versa.</p>"
+            "field": "id",
+            "description": "<p>unique key.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "  HTTP/1.1 200 OK\n{\n \"name\": \"Income\",\n        \"positive\": true,\n        \"id\": 1,\n        \"updatedAt\": \"2018-07-28T17:11:22.000Z\",\n        \"createdAt\": \"2018-07-28T17:11:22.000Z\"\n       }",
+          "content": "HTTP/1.1 200 OK\n\n\n    {\n        \"name\": \"Transport\",\n        \"type\": \"Cash\"\n    }",
           "type": "json"
         }
       ]
@@ -801,10 +805,28 @@
       }
     },
     "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>method title/name.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>cash/account etc.</p>"
+          }
+        ]
+      },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "  HTTP/1.1 200 OK\n{\n \"name\": \"Income\",\n        \"positive\": true,\n        \"id\": 1,\n        \"updatedAt\": \"2018-07-28T17:11:22.000Z\",\n        \"createdAt\": \"2018-07-28T17:11:22.000Z\"\n       }",
+          "content": "   HTTP/1.1 200 OK\n{\n           \"name\": \"Transport\",\n           \"type\": \"Cash\"\n       }",
           "type": "json"
         }
       ]
@@ -835,7 +857,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "  HTTP/1.1 200 OK\n[{\n \"name\": \"Income\",\n        \"positive\": true,\n        \"id\": 1,\n        \"updatedAt\": \"2018-07-28T17:11:22.000Z\",\n        \"createdAt\": \"2018-07-28T17:11:22.000Z\"\n       }]",
+          "content": "HTTP/1.1 200 OK\n\n    {\n        \"name\": \"Transport\",\n        \"type\": \"Cash\"\n    }",
           "type": "json"
         }
       ]
