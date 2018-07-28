@@ -47,4 +47,8 @@ export class LoginComponent implements OnInit {
       );
   }
 
+  signUpFormOpen(){
+    this.route.navigate(['/signup'])
+  }
+
 }
