@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { AlertModule, AlertService } from 'ngx-alerts';
 
 // components
 import { AppComponent } from './app.component';
@@ -32,11 +33,13 @@ import { AuthenticationService } from './Services/authentication.service';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    AlertModule.forRoot({ maxMessages: 5, timeout: 5000 })
   ],
   providers: [
     AuthenticationService,
-    DataService
+    DataService,
+    AlertService
   ],
   bootstrap: [AppComponent]
 })

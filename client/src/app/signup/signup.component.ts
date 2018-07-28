@@ -1,3 +1,4 @@
+import { AlertService } from 'ngx-alerts';
 import { AuthenticationService } from './../Services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -15,7 +16,7 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
 
-  constructor(private router: Router, private authenticationService: AuthenticationService) { }
+  constructor(private router: Router, private authenticationService: AuthenticationService, private alertService: AlertService ) { }
 
   ngOnInit() {
     this.signupForm = new FormGroup({
@@ -47,7 +48,7 @@ export class SignupComponent implements OnInit {
         },
         err => {
           console.log(err, 'api');
-          // this.alertService.danger(err['msg']);
+          this.alertService.danger(err['error'].message);
         }
       );
   }

@@ -21,7 +21,7 @@ exports.create = function (req, res) {
   user.save().success(function () {
     res.send(user);
   }).error(function (err) {
-    res.send(500).json({
+    res.status(500).json({
       message: err
     })
   });

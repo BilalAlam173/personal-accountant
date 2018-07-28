@@ -22,7 +22,7 @@
     "connect-flash": "latest",
     "connect-mongo": "latest",
     "crypto": "latest",
-    "express": "3.0.0",
+    "express": "^3.0.0",
     "forever": "latest",
     "grunt": "latest",
     "grunt-cli": "latest",

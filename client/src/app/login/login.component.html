@@ -1,13 +1,12 @@
+<ngx-alerts></ngx-alerts>
 <div class="wrapper">
     <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
       <h2 class="form-signin-heading text-center">Login</h2>
-      <!-- <div *ngIf="errMessage" class="alert alert-danger">
-        {{errMessage}}
-      </div> -->
       <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" formControlName="email"
       />
       <input type="password" class="form-control" name="password" placeholder="Password" required="" formControlName="password"
       />
+      <!-- <p class="text-center" style="color: red">{{errMessage}}</p> -->
       <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!loginForm.valid">Login</button>
     </form>
   </div>

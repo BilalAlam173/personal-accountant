@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthenticationService {
-
+  loggedIn = false;
   constructor(private dataService : DataService) { }
 
   loginUser(payload) {
