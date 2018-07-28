@@ -1,6 +1,6 @@
 <div class="wrapper">
   <form class="form-signin" [formGroup]="signupForm" (ngSubmit)="registerUser(signupForm.value)">
-    <h2 class="form-signin-heading text-center">Signup</h2>
+    <h2 class="form-signin-heading text-center">Welcome aboard!</h2>
     <input type="text" class="form-control" name="name" placeholder="Your Name" required="" autofocus="" formControlName="name"
     />
     <input type="text" class="form-control" name="userame" placeholder=" User Name" required="" autofocus="" formControlName="username"
@@ -13,6 +13,6 @@
     <div [hidden]="signupForm.controls.confirmPassword.valid || signupForm.controls.confirmPassword.pristine" class="alert alert-danger">
       Password mismatch
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!signupForm.valid">Signup</button> 
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!signupForm.valid">Signup</button>
   </form>
 </div>
