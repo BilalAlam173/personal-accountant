@@ -52,4 +52,8 @@ export class SignupComponent implements OnInit {
         }
       );
   }
+
+  logInFormOpen(){
+    this.router.navigate(['/login']);
+  }
 }
