@@ -1,8 +1,9 @@
-import { AuthenticationService } from './../Services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertService } from 'ngx-alerts';
+import { AuthenticationService } from '../shared/services/authentication.service';
+import { User } from '../shared/models/user';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -31,10 +32,10 @@ export class LoginComponent implements OnInit {
     console.log(payload);
     this.authenticationService.loginUser(payload)
       .subscribe(
-        res => {
-          console.log(res); 
+        (res:User) => {
             this.userlogin_response = res;
             localStorage.setItem('userInfo', JSON.stringify(this.userlogin_response));
+            this.authenticationService.setUser(res);
             this.authenticationService.loggedIn = true;
             this.alertService.success('Login SuccesFull');
             this.route.navigate(['/home']);

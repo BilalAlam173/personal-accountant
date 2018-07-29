@@ -1,9 +1,11 @@
 import { AlertService } from 'ngx-alerts';
-import { AuthenticationService } from './../Services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PasswordValidation } from './../password-validation';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../shared/services/authentication.service';
+import { User } from '../shared/models/user';
+
 
 
 
@@ -30,7 +32,7 @@ export class SignupComponent implements OnInit {
   passwordMatchValidator = function (signupForm: FormGroup) {
     return signupForm.get('password').value === signupForm.get('confirmPassword').value ? null : { 'mismatch': true };
   }
-  
+
   registerUser(user) {
     let payload = {
       name: user.name,
@@ -41,7 +43,7 @@ export class SignupComponent implements OnInit {
     // console.log(payload);
     this.authenticationService.registerUser(payload)
       .subscribe(
-        res => {
+        (res:User)=> {
           console.log(res, 'api');
           // this.alertService.success(res['msg']);
           this.router.navigate(['/login']);
