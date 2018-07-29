@@ -10,20 +10,18 @@
       </li>
     </ul>
       <ul class="nav navbar-nav ml-auto">
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="preview" href="#" role="button" aria-haspopup="true" aria-expanded="false">Products</a>
+      <li class="nav-item dropdown" *ngIf="user">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="preview" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{user.name}}</a>
         <div class="dropdown-menu" aria-lableledby="preview">
-          <a class="dropdown-item" href="#">Product1</a>
-          <a class="dropdown-item" href="#">Product2</a>
-          <a class="dropdown-item" href="#">Product3</a>
-          <a class="dropdown-item" href="#">Product4</a>
+          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="#" (click)="logout()">Logout</a>
         </div>
-      </li> -->
+      </li>
 
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!user">
         <a routerLink="/login" class="nav-link">Log In</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!user">
         <a routerLink="/signup" class="nav-link">Sign Up</a>
       </li>
       <!-- <li class="nav-item">

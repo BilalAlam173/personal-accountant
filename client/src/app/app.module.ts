@@ -15,8 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
 // service
-import { DataService } from './Services/data.service';
-import { AuthenticationService } from './Services/authentication.service';
+import { DataService } from './shared/services/data.service';
+import { AuthenticationService } from './shared/services/authentication.service';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({

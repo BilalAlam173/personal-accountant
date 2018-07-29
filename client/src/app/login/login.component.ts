@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
             this.authenticationService.setUser(res);
             this.authenticationService.loggedIn = true;
             this.alertService.success('Login SuccesFull');
-            this.route.navigate(['/home']);
+            this.route.navigate(['/dashboard']);
         },
         err => {
           this.errMessage = err['error'].message;
