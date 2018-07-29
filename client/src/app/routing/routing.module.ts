@@ -1,3 +1,4 @@
+import { AuthGuard } from './../shared/guard/auth.guard';
 import { DashboardComponent } from './../dashboard/dashboard.component';
 import { SignupComponent } from './../signup/signup.component';
 import { LoginComponent } from './../login/login.component';
@@ -10,7 +11,7 @@ import { HomeComponent } from './../home/home.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'dashboard', component: DashboardComponent},
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: '**', redirectTo: 'home' }

@@ -13,11 +13,12 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { HeaderComponent } from './header/header.component';
 
 // service
 import { DataService } from './shared/services/data.service';
 import { AuthenticationService } from './shared/services/authentication.service';
-import { HeaderComponent } from './header/header.component';
+import { AuthGuard } from './shared/guard/auth.guard';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { HeaderComponent } from './header/header.component';
   providers: [
     AuthenticationService,
     DataService,
-    AlertService
+    AlertService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
             this.userlogin_response = res;
             localStorage.setItem('userInfo', JSON.stringify(this.userlogin_response));
             this.authenticationService.setUser(res);
-            this.authenticationService.loggedIn = true;
+            localStorage.setItem('isLoggedin', 'true');
             this.alertService.success('Login SuccesFull');
             this.route.navigate(['/dashboard']);
         },
