@@ -110,7 +110,9 @@ exports.destroy = function (req, res) {
             db.Entry.find({where:{
                 MethodId:id
             }}).success(function(entry){
-                entry.destroy({ force: true });
+                if(entry){
+                    entry.destroy({ force: true });
+                }
             });
 
             method.destroy({

@@ -94,7 +94,7 @@ exports.update = function (req, res) {
 exports.destroy = function (req, res) {
 
     // create a new variable to hold the account that was placed on the req object.
-    const id = req.body.id;
+    const id = req.params.id;
 
 
     db.Account.find({
@@ -111,14 +111,19 @@ exports.destroy = function (req, res) {
             db.Category.find({where:{
                 AccountId:id
             }}).success(function(category){
-                category.destroy({ force: true });
+                if(category){
+                    category.destroy({ force: true });
+                }
+                
             });
 
             //delete referenced entries
             db.Entry.find({where:{
                 AccountId:id
             }}).success(function(entry){
-                entry.destroy({ force: true });
+                if(entry){
+                    entry.destroy({ force: true });
+                }
             });
             account.destroy({
                 where: {

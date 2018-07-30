@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row col-md-10 offset-md-1 custyle">       
+        <button type="button" class="btn btn-md btn-primary float-right" (click)="openModal(template)" style="margin-top: 10px;">Add Account <i class="fa fa-plus"></i></button> 
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>isPositive</th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+            <tr *ngFor="let account of accounts ">
+                <td>{{account.id}}</td>
+                <td>{{account.name}}</td>
+                <td>{{account.isPositive}}</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a class="btn btn-danger btn-xs" (click)="deleteAccount(account.id)"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+    </table>
+    </div>
+    <ng-template #template>
+            <div class="modal-header">
+              <h4 class="modal-title pull-left">Add Account</h4>
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                    <form class="form-signin" [formGroup]="AddAccountForm" (ngSubmit)="addAccount(AddAccountForm.value)">
+                            <div class="row">
+                                    <div class="col-lg-12">                                 
+                        <input type="text" class="form-control" name="name" placeholder="Account Name" required="" autofocus="" formControlName="name"/>                            
+                            </div>
+                                    <div class="col-lg-5 offset-md-1 ">                                  
+                        <input type="radio" name="positive" value='1' formControlName="positive" [(ngModel)]='positive'>True
+                                    </div>
+                                    <div class="col-lg-5 offset-md-1">    
+                        <input type="radio" name='positive' value='0' formControlName="positive" [(ngModel)]='positive'>False
+                                    </div>
+                            </div>
+                        
+                            <hr>
+                        
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!AddAccountForm.valid" (click)="modalRef.hide()">Create</button>
+                            
+                        </form>
+            </div>
+          </ng-template>
+</div>

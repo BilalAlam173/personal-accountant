@@ -123,7 +123,10 @@ exports.destroy = function (req, res) {
             db.Entry.find({where:{
                 AccountId:id
             }}).success(function(entry){
-                entry.destroy({ force: true });
+                if(entry){
+                    entry.destroy({ force: true });
+                }
+                
             });
             category.destroy({
                 where: {

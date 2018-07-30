@@ -1,3 +1,5 @@
+import { SettingsService } from './shared/services/settings.service';
+import { EntriesService } from './shared/services/entries.service';
 import { RoutingModule } from './routing/routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -6,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AlertModule, AlertService } from 'ngx-alerts';
+import { ModalModule } from 'ngx-bootstrap';
 
 // components
 import { AppComponent } from './app.component';
@@ -19,6 +22,11 @@ import { HeaderComponent } from './header/header.component';
 import { DataService } from './shared/services/data.service';
 import { AuthenticationService } from './shared/services/authentication.service';
 import { AuthGuard } from './shared/guard/auth.guard';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { EntryComponent } from './entry/entry.component';
+import { CategoryComponent } from './category/category.component';
+import { AccountComponent } from './account/account.component';
+import { MethodComponent } from './method/method.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +35,12 @@ import { AuthGuard } from './shared/guard/auth.guard';
     DashboardComponent,
     LoginComponent,
     SignupComponent,
-    HeaderComponent
+    HeaderComponent,
+    SidebarComponent,
+    EntryComponent,
+    CategoryComponent,
+    AccountComponent,
+    MethodComponent
   ],
   imports: [
     BrowserModule,
@@ -37,13 +50,16 @@ import { AuthGuard } from './shared/guard/auth.guard';
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
-    AlertModule.forRoot({ maxMessages: 5, timeout: 5000 })
+    AlertModule.forRoot({ maxMessages: 5, timeout: 5000 }),
+    ModalModule.forRoot()
   ],
   providers: [
     AuthenticationService,
     DataService,
     AlertService,
-    AuthGuard
+    AuthGuard,
+    EntriesService,
+    SettingsService
   ],
   bootstrap: [AppComponent]
 })

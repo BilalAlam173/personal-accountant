@@ -67,7 +67,7 @@ exports.init = function (app) {
      * @apiError server Error while finding the user with the provided id
      
      */
-     app.delete('/account', account.destroy);
+     app.delete('/account/:id', account.destroy);
 
      /**
      * @api {put} /account update an account
