@@ -4,16 +4,15 @@
 var db = require('../../config/sequelize');
 
 /**
- * Find category by id
+ * Find category by accoutnId
  * Note: This is called every time that the parameter :accountId is used in a URL. 
  * Its purpose is to preload the category on the req object then call the next function. 
  */
-exports.category = function (req, res) {
-    console.log('id => ' + req.params.id);
+exports.getByAccount = function (req, res) {
     const id = req.params.id;
-    db.Category.find({
+    db.Category.findAll({
         where: {
-            id: id
+            AccountId: id
         }
     }).success(function (category) {
         if (!category) {
@@ -107,7 +106,7 @@ exports.update = function (req, res) {
 exports.destroy = function (req, res) {
 
     // create a new variable to hold the category that was placed on the req object.
-    const id = req.body.id;
+    const id = req.params.id;
 
     db.Category.find({
         where: {

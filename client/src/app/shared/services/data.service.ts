@@ -9,8 +9,8 @@ export class DataService {
   baseUrl = "/api/";
 
   constructor(private http: HttpClient) { }
- 
-  // authentication 
+
+  // authentication
   loginUser(payload) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -59,7 +59,7 @@ export class DataService {
   deleteCategory(payload){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.delete(this.baseUrl + 'category', payload);
+    return this.http.delete(`${this.baseUrl}category/${payload.id}`);
   }
 
   updateCategory(payload){
@@ -73,6 +73,11 @@ export class DataService {
     headers.append('Content-Type', 'application/json');
     return this.http.get(this.baseUrl + 'category');
   }
+  getCategoryByAccount(payload){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(`${this.baseUrl}category/${payload.id}`);
+  }
 
   //methods
 
@@ -85,7 +90,7 @@ export class DataService {
   deleteMethod(payload){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.delete(this.baseUrl + 'method', payload);
+    return this.http.delete(`${this.baseUrl}method/${payload.id}`);
   }
 
   updateMethod(payload){

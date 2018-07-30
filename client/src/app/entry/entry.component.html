@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row col-md-10 offset-md-1 custyle">
+    <button type="button" class="btn btn-md btn-primary float-right" (click)="openModal(template)" style="margin-top: 10px;">Add Entry
+      <i class="fa fa-plus"></i>
+    </button>
+    <table class="table table-striped custab">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title/Description</th>
+          <th>Amount</th>
+          <th>Account</th>
+          <th>Category</th>
+          <th>Method</th>
+          <th>Date</th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let entry of entrys ">
+        <td>{{entry.id}}</td>
+        <td>{{entry.title}}</td>
+        <td>{{entry.amount}}</td>
+        <td>{{entry.category}}</td>
+        <td>{{entry.account}}</td>
+        <td>{{entry.method}}</td>
+        <td>{{entry.createdAt}}</td>
+        <td class="text-center">
+          <a class='btn btn-info btn-xs' href="#">
+            <span class="glyphicon glyphicon-edit"></span> Edit</a>
+          <a class="btn btn-danger btn-xs" (click)="deleteEntry(entry.id)">
+            <span class="glyphicon glyphicon-remove"></span> Del</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <ng-template #template>
+    <form class="form-signin" [formGroup]="AddEntryForm" (ngSubmit)="addEntry(AddEntryForm.value)">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Add Entry</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <input type="text" class="form-control" placeholder="Entry Title" required="" autofocus="" formControlName="title" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <input type="number" class="form-control" name="name" placeholder="Amount" formControlName="amount" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <select class="form-control" formControlName="AccountId" placeholder="Select Account" (change)="loadCategories(AddEntryForm.value.AccountId)">
+              <option selected>select category</option>
+              <option *ngFor="let account of accounts" value="{{account.id}}">{{account.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <select class="form-control" formControlName="CategoryId" placeholder="Select Category" (ngModelChange)="loadCategories(AddEntryForm.value.AccountId)">
+              <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <select class="form-control" formControlName="MethodId" placeholder="Select Method">
+              <option *ngFor="let method of methods" value="{{method.id}}">{{method.name}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!AddEntryForm.valid" (click)="modalRef.hide()">Create</button>
+    </form>
+  </ng-template>
+</div>

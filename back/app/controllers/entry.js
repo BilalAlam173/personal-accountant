@@ -37,8 +37,8 @@ exports.create = async function (req, res) {
     // augment the entry by adding the UserId
 
     const account = await db.Account.find({where:{id:req.body.AccountId}});
-    const category = await db.Account.find({where:{id:req.body.CategoryId}});
-    const method = await db.Account.find({where:{id:req.body.MethodId}});
+    const category = await db.Category.find({where:{id:req.body.CategoryId}});
+    const method = await db.Method.find({where:{id:req.body.MethodId}});
 
         if(account && category && method){
             let entry = req.body;

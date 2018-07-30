@@ -23,6 +23,9 @@ export class SettingsService {
   getAllCategory(){
     return this.dataService.getAllCategory();
   }
+  getCategoryByAccount(payload){
+    return this.dataService.getCategoryByAccount(payload);
+  }
 
   //method
 
@@ -53,5 +56,5 @@ export class SettingsService {
   getAllAccount(){
     return this.dataService.getAllAccount();
   }
-  
+
 }

@@ -94,7 +94,7 @@ exports.update = function (req, res) {
 exports.destroy = function (req, res) {
 
     // create a new variable to hold the method that was placed on the req object.
-    const id = req.body.id;
+    const id = req.params.id;
 
     db.Method.find({
         where: {

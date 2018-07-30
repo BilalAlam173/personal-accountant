@@ -63,7 +63,7 @@ exports.init = function (app) {
      while finding the user with the provided id
 
         */
-    app.delete('/method', method.destroy);
+    app.delete('/method/:id', method.destroy);
 
     /**
      * @api {put} /method update an method

@@ -74,7 +74,7 @@ exports.init = function (app) {
     while finding the user with the provided id
     */
 
-    app.delete('/category', category.destroy);
+    app.delete('/category/:id', category.destroy);
 
     /**
      * @api {put} /category update an category
@@ -104,6 +104,8 @@ exports.init = function (app) {
      */
 
     app.put('/category/:id', category.update);
+
+    app.get('/category/:id', category.getByAccount);
 
 
 };

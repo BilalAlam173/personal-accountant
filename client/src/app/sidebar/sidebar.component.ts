@@ -12,4 +12,9 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
   }
 
+  stopPropogate(e){
+    console.log(e)
+    e.preventDefault();
+  }
+
 }
