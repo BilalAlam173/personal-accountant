@@ -32,16 +32,16 @@
                         <input type="text" class="form-control" name="name" placeholder="Account Name" required="" autofocus="" formControlName="name"/>                            
                             </div>
                                     <div class="col-lg-5 offset-md-1 ">                                  
-                        <input type="radio" name="positive" value='1' formControlName="positive" [(ngModel)]='positive'>True
+                        <input type="radio" name="positive" value='1' formControlName="positive" [(ngModel)]='positive'> Positive
                                     </div>
                                     <div class="col-lg-5 offset-md-1">    
-                        <input type="radio" name='positive' value='0' formControlName="positive" [(ngModel)]='positive'>False
+                        <input type="radio" name='positive' value='0' formControlName="positive" [(ngModel)]='positive'> Negetive
                                     </div>
                             </div>
                         
+                            <br>
                             <hr>
-                        
-                            <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!AddAccountForm.valid" (click)="modalRef.hide()">Create</button>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!AddAccountForm.valid" (click)="modalRef.hide()">Add</button>
                             
                         </form>
             </div>

@@ -43,30 +43,27 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-6">
             <input type="text" class="form-control" placeholder="Entry Title" required="" autofocus="" formControlName="title" />
           </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
+        
+          <div class="col-lg-6">
             <input type="number" class="form-control" name="name" placeholder="Amount" formControlName="amount" />
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-6">
             <select class="form-control" formControlName="AccountId" placeholder="Select Account" (change)="loadCategories(AddEntryForm.value.AccountId)">
-              <option selected>select category</option>
               <option *ngFor="let account of accounts" value="{{account.id}}">{{account.name}}</option>
             </select>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-12">
+                 <div class="col-lg-6">
             <select class="form-control" formControlName="CategoryId" placeholder="Select Category" (ngModelChange)="loadCategories(AddEntryForm.value.AccountId)">
               <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
             </select>
           </div>
         </div>
+        <br>
         <div class="row">
           <div class="col-lg-12">
             <select class="form-control" formControlName="MethodId" placeholder="Select Method">
@@ -75,8 +72,8 @@
           </div>
         </div>
       </div>
-
-      <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!AddEntryForm.valid" (click)="modalRef.hide()">Create</button>
+      <hr>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="!AddEntryForm.valid" (click)="modalRef.hide()">Add</button>
     </form>
   </ng-template>
 </div>
